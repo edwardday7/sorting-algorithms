@@ -1,36 +1,38 @@
 #!/usr/bin/env python3
 
-
 def merge_sort(arr):
+
     if len(arr) > 1:
-        left_arr = arr[:len(arr)//2]
-        right_arr = arr[len(arr)//2:]
-    
+
+        middle = len(arr) // 2
+        left_arr = arr[:middle]
+        right_arr = arr[middle:]
+
         merge_sort(left_arr)
         merge_sort(right_arr)
 
-        # Merge arrays
-        i = 0
-        j = 0
-        k = 0
+        i = 0   # Track left array location
+        j = 0   # Track right array location
+        k = 0   # Track original array location
         while i < len(left_arr) and j < len(right_arr):
             if left_arr[i] < right_arr[j]:
-                arr[k] == left_arr[i]
+                arr[k] = left_arr[i]
                 i += 1
             else:
-                arr[k] == right_arr[j]
+                arr[k] = right_arr[j]
                 j += 1
             k += 1
-        
-        while i < len(left_arr):    # still elements missing
+
+        while i < len(left_arr):
             arr[k] = left_arr[i]
             i += 1
             k += 1
 
-        while j < len(right_arr):
+        while j < len(left_arr):
             arr[k] = right_arr[j]
-            j += 1
+            j += 1 
             k += 1
+        
 
 
 
